@@ -10,7 +10,7 @@ Feel free to try it out! Running `study_helper.pl` in s(CASP) should allow you t
 * Choose an input file provided or edit a new one to have the student name, classes, grades, assignments, and days till due.
 * Run the parser.py with an associated text file that has the proper input.
   * Example: python parser.py input1.txt
-* Run sCASP with the study_helper.pl file.
+* Run s(CASP) with the study_helper.pl file.
   * Example: scasp -i study_helper.pl
 
 ## What inspired us.

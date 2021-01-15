@@ -43,6 +43,7 @@ file.close()
 # write to file
 f = open("header.pl","w")
 
+# write student instantiation to file
 f.write('student('+student_name+').\n\n')
 
 # write classes

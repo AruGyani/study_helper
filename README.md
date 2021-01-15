@@ -1,5 +1,5 @@
 
-# weekly-scheduler
+# Study Helper
 
 **Team**: James Hooper (JAH171230),  Aru Gyani (AXG190108), Ivan Payne (IAP170000), Richard Gatchalian (RRG170002)
 

@@ -1,5 +1,6 @@
 /* Instantiations */
 #include 'header.pl'.
+#include 'mentor-sort.pl'.
 
 /* Time Urgency */
 % past 3 weeks we assume an urgency of 2
@@ -40,13 +41,22 @@ e_urgency(X,20) :- midterm(X).
 e_urgency(X,30) :- final(X).
 
 /* Urgency Total */
-urgency(X,Y,Z,A) :- time_urgency(X,B), a_urgency(X,C), taking(_,Z,_), grade_urgency(Z,D), coursework(Z,X,A), assignment(X), Y is B+C+D.
-urgency(X,Y,Z,A) :- time_urgency(X,B), e_urgency(X,C), taking(_,Z,_), grade_urgency(Z,D), coursework(Z,X,A), exam(X), Y is B+C+D.
+% Assignment X from Class Z with Due Date A, has an Urgency Rating of Y
+hasUrgency(X,Z,A,Y) :- time_urgency(X,B), a_urgency(X,C), taking(_,Z,_), grade_urgency(Z,D), coursework(Z,X,A), assignment(X), Y is B+C+D.
+hasUrgency(X,Z,A,Y) :- time_urgency(X,B), e_urgency(X,C), taking(_,Z,_), grade_urgency(Z,D), coursework(Z,X,A), exam(X), Y is B+C+D.
 
 /* Urgency List */
 % X = Assignment Name
-% Y = Urgency Rating
 % Z = Class Name
 % A = Due Date
+% Y = Urgency Rating
+urgencyList(L) :- findall([X,Z,A,Y], hasUrgency(X,Z,A,Y), L). 
+mostUrgent(H) :- urgencyList(L), sort_by_index(L,3,[H|T]), write('[Assignment, Class, Days till Due, Urgency Score]').
 
-urgencyList(L) :- findall([X,Y,Z,A], urgency(X,Y,Z,A), L).
+/* Logical Axioms */
+% announcement of work due
+% class X has something (Y) due
+hasDue(X,Y) :- coursework(X,Y,_), write('You have assignment '), write(Y), 
+write(' due for class '), write(X), write('.').
+% If you are failing class X and then you need to do task/the assignment Y
+failing(X) :- grade_urgency(X,36).

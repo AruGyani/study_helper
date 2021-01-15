@@ -79,3 +79,5 @@ doingFair(S) :- studentGradeAvg(S,A), A >= 70.
 doingPoor(S) :- studentGradeAvg(S,A), A < 70.
 % Student should see the counsler if their grade average is failing (doing poor)
 seeCounselor(S) :- doingPoor(S).
+% Should the student S drop the class X
+% dropClass(S,X) :- seeCounselor(S), failing(S,X), not hasDue(X,Y).

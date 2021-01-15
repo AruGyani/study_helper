@@ -13,11 +13,11 @@ final(os_final).
 
 /* Time Urgency */
 % past 3 weeks we assume an urgency of 2
-time_urgency(X,2) :- coursework(_,_,Z), Z >= 21.
-time_urgency(X,4) :- coursework(_,_,Z), Z >= 14, Z < 21.
-time_urgency(X,6) :- coursework(_,_,Z), Z >= 7, Z < 14.
-time_urgency(X,8) :- coursework(_,_,Z), Z >= 4, Z < 7.
-time_urgency(X,10) :- coursework(_,_,Z), Z >= 0, Z < 4.
+time_urgency(X,2) :- coursework(_,X,Z), Z >= 21.
+time_urgency(X,4) :- coursework(_,X,Z), Z >= 14, Z < 21.
+time_urgency(X,6) :- coursework(_,X,Z), Z >= 7, Z < 14.
+time_urgency(X,12) :- coursework(_,X,Z), Z >= 4, Z < 7.
+time_urgency(X,24) :- coursework(_,X_,Z), Z >= 0, Z < 4.
 
 /* Assignments */
 assignment(X) :- homework(X).

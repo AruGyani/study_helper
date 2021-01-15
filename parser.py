@@ -1,5 +1,19 @@
-# open file
-file = open("input-study-helper.txt")
+import sys
+
+# Check for proper input
+if len(sys.argv) != 2:
+	exit()
+else:
+	to_open = sys.argv[1]
+
+# try to open file
+try:
+	file = open(to_open)
+# return error
+except IOError:
+	print("File does not exist!")
+	exit()
+	
 # read lines from file
 lines = file.readlines()
 # index check to see if we reached new section

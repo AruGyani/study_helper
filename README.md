@@ -4,7 +4,7 @@
 **Team**: James Hooper (JAH171230),  Aru Gyani (AXG190108), Ivan Payne (IAP170000), Richard Gatchalian (RRG170002)
 
 ## Try it out.
-Feel free to try it out! Running `study_helper.pl` in s(CASP) should allow you to run predicates such as `urgencyList(L).`, `gradeAvg(A).`, `gradeList(L).`, and more. 
+Feel free to try it out! Running `study_helper.pl` in s(CASP) should allow you to run predicates such as `urgencyList(L).`, `studentGradeAvg(S,A).`, `hasDue(X,Y).`, and more. 
 
 ### Steps for Execution
 * Choose an input file provided or edit a new one to have the student name, classes, grades, assignments, and days till due.

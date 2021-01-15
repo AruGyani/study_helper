@@ -3,7 +3,7 @@ Juno No
 intro_to_logic,95
 os_prog,85
 javaII,90
-texas_gov,75
+texas_gov,67
 
 intro_to_logic,logic_quiz,QUIZ,5
 os_prog,os_final,FINAL,15

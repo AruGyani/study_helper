@@ -53,10 +53,29 @@ hasUrgency(X,Z,A,Y) :- time_urgency(X,B), e_urgency(X,C), taking(_,Z,_), grade_u
 urgencyList(L) :- findall([X,Z,A,Y], hasUrgency(X,Z,A,Y), L). 
 mostUrgent(H) :- urgencyList(L), sort_by_index(L,3,[H|T]), write('[Assignment, Class, Days till Due, Urgency Score]').
 
-/* Logical Axioms */
+/* Inferences Based on Assignments, Classes, and Grades */
 % announcement of work due
 % class X has something (Y) due
 hasDue(X,Y) :- coursework(X,Y,_), write('You have assignment '), write(Y), 
 write(' due for class '), write(X), write('.').
-% If you are failing class X and then you need to do task/the assignment Y
-failing(X) :- grade_urgency(X,36).
+% Student S needs to do task X for class Y that they are failing.
+needTask(S,X,Y) :- failing(S,Y), coursework(Y,X,_).
+% Infers that you are a failing a class
+failing(S,X) :- student(S), taking(S,X,_), grade_urgency(X,36).
+% Student Grades
+gradeList(L) :- findall(G,taking(S,X,G),L).
+% Returns the sum and length of a list
+sum_len_list([],0,0).
+sum_len_list([H|T],Sum,Len) :- sum_len_list(T, R, L), Sum is H + R, Len is L + 1.
+% Returns grade average
+gradeAvg(A) :- gradeList(L), sum_len_list(L,S,Len), A is S/Len.
+% Student Grade Average Association 
+studentGradeAvg(S,A) :- student(S), gradeAvg(A).
+% Students Performance for Semester
+% Student is inherent to system
+doingGreat(S) :- studentGradeAvg(S,A), A >= 90.
+doingWell(S) :- studentGradeAvg(S,A), A >= 80.
+doingFair(S) :- studentGradeAvg(S,A), A >= 70.
+doingPoor(S) :- studentGradeAvg(S,A), A < 70.
+% Student should see the counsler if their grade average is failing (doing poor)
+seeCounselor(S) :- doingPoor(S).

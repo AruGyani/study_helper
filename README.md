@@ -8,6 +8,7 @@ Feel free to try it out! Running `study_helper.pl` in s(CASP) should allow you t
 
 Note: `input1.txt` and `input2.txt` are both individual test cases for this project. Both are included to show some different types of output you can get.
 
+
 ### Steps for Execution
 * Choose an input file provided or edit a new one to have the student name, classes, grades, assignments, and days till due.
 * Run the parser.py with an associated text file that has the proper input.

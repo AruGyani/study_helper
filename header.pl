@@ -11,7 +11,7 @@ class(texas_gov).
 taking(junono,intro_to_logic,95).
 taking(junono,os_prog,85).
 taking(junono,javaII,90).
-taking(junono,texas_gov,75).
+taking(junono,texas_gov,67).
 
 % class gives coursework due in x days
 coursework(intro_to_logic,logic_quiz,5).

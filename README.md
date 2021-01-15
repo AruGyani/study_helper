@@ -8,6 +8,14 @@ Feel free to try it out! Running `study_helper.pl` in s(CASP) should allow you t
 
 Note: `input1.txt` and `input2.txt` are both individual test cases for this project. Both are included to show some different types of output you can get.
 
+Included files:
+ 1. README.md
+ 2. study_helper.pl - Script for generating assignment/schedule analysis and inferences
+ 3. parser.py - Script for generating header file 
+ 4. input1.txt - Example test case 1
+ 5. input2.txt - Example test case 2
+ 6. mentor-sort.pl - Sorting and max_index functionality
+
 
 ### Steps for Execution
 * Choose an input file provided or edit a new one to have the student name, classes, grades, assignments, and days till due.

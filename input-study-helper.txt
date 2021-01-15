@@ -1,0 +1,12 @@
+Juno No
+
+intro_to_logic,95
+os_prog,85
+javaII,90
+texas_gov,75
+
+intro_to_logic,logic_quiz,QUIZ,5
+os_prog,os_final,FINAL,15
+javaII,objectHW,HOMEWORK,8
+texas_gov,unit1,QUIZ,6
+texas_gov,unit2,QUIZ,12

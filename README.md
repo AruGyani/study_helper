@@ -6,6 +6,13 @@
 ## Try it out.
 Feel free to try it out! Running `study_helper.pl` in s(CASP) should allow you to run predicates such as `urgencyList(L).`, `gradeAvg(A).`, `gradeList(L).`, and more. 
 
+### Steps for Execution
+* Choose an input file provided or edit a new one to have the student name, classes, grades, assignments, and days till due.
+* Run the parser.py with an associated text file that has the proper input.
+  * Example: python parser.py input1.txt
+* Run sCASP with the study_helper.pl file.
+  * Example: scasp -i study_helper.pl
+
 ## What inspired us.
 Using [Blackboard Learn](https://www.blackboard.com/teaching-learning/learning-management/blackboard-learn), we all found one common issue. Blackboard offers a feature which displays the due date of any given assignment. While this alone is quite a useful feature to have, each class we take has its own set of assignments, quizzes, and exams we need to keep track of. **So**, we thought why not develop a tool to generate efficient study schedules for us based on all our assignments? Implementing common-sense reasoning and logical inferences into this tool resulted in a program that generates **urgency ratings** for each assignment based on due date, class grade, assignment type, etc. This allows a user to better conceptualize what assignments need to be done, and when.
 

@@ -50,25 +50,30 @@ assignment(X) :- homework(X).
 assignment(X) :- quiz(X).
 assignment(X) :- project(X).
 
-/* Assignment Urgency */ 
-a_urgency(X,5) :- homework(X).  
+/* Assignment Urgency */
+a_urgency(X,5) :- homework(X).
 a_urgency(X,10) :- quiz(X).
 a_urgency(X,15) :- project(X).
-         
+
 /* Exams */
 exam(X) :- midterm(X).
 exam(X) :- final(X).
-      
+
 /* Exam Urgency */
 % this means to work on / study for
 % actions can be different such as with quizzes (studying for or completing)
-% the functional difference doesn't really matter as long as assume this is study overall
+% the functional difference doesnt really matter as long as assume this is study overall
 e_urgency(X,20) :- midterm(X).
-e_urgency(X,30) :- final(X). 
-    
-/* Urgency Total */ 
-urgency(X,Y) :- time_urgency(X,B), a_urgency(X,C), taking(_,Z,_), grade_urgency(Z,D), coursework(Z,X,_), assignment(X), Y is B+C+D.
-urgency(X,Y) :- time_urgency(X,B), e_urgency(X,C), taking(_,Z,_), grade_urgency(Z,D), coursework(Z,X,_), exam(X), Y is B+C+D.
+e_urgency(X,30) :- final(X).
+
+/* Urgency Total */
+urgency(X,Y,Z,A) :- time_urgency(X,B), a_urgency(X,C), taking(_,Z,_), grade_urgency(Z,D), coursework(Z,X,A), assignment(X), Y is B+C+D.
+urgency(X,Y,Z,A) :- time_urgency(X,B), e_urgency(X,C), taking(_,Z,_), grade_urgency(Z,D), coursework(Z,X,A), exam(X), Y is B+C+D.
 
 /* Urgency List */
-urgencyList(L) :- findall([X,Y], urgency(X,Y), L).
+% X = Assignment Name
+% Y = Urgency Rating
+% Z = Class NAme
+% A = Due Date
+
+urgencyList(L) :- findall([X,Y,Z,A], urgency(X,Y,Z,A), L).

@@ -45,4 +45,4 @@ urgency(X,Y) :- time_urgency(X,B), a_urgency(X,D), assignment(X), Y is B+D.
 urgency(X,Y) :- time_urgency(X,B), e_urgency(X,D), exam(X), Y is B+D.
 
 /* Urgency List */
-urgencyList(L) :- findall(Y, urgency(X,Y), L).
+urgencyList(L) :- findall([X,Y], urgency(X,Y), L).
